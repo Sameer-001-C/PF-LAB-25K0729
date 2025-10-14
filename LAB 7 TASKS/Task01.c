@@ -1,22 +1,23 @@
 #include <stdio.h>
 
 int main(){
-	int employeeID[12];
-	int search, i;
+	int search, i,numEmployee;
+	printf("Please enter the number of Employees: ");
+	scanf("%d", &numEmployee);
+	int employeeID[numEmployee];
 	
-	for(i = 0; i < 12; i++){
-		printf("Enter Employee ID:");
+	for(i = 0; i < numEmployee; i++){
+		printf("Enter Employee ID for employee number %d: ", i+1);
 		scanf("%d", &employeeID[i]);
-	}
-	
-	printf("Please enter an ID to search:");
+	}	
+	printf("Please enter an ID to search: ");
 	scanf("%d", &search);
-	for(i = 0; i < 12; i++){
+	for(i = 0; i < numEmployee; i++){
 		if(search == employeeID[i]){
-			i = 12;
+			i = numEmployee;
 			printf("Employee Found!");
 		}
-		else if(i == 11){
+		else if(i == (numEmployee - 1)){
 			printf("Employee not Found!");
 		}
 	}
