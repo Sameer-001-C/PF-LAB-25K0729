@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(){
-	int num, i, remove, temp, newnum;
+	int num, i, j = 0, remove, temp, newnum;
 	printf("Please enter the size of Array: ");
 	scanf("%d", &num);
 	printf("\n");
@@ -12,17 +12,16 @@ int main(){
 	}
 	printf("What element do you want to remove from the Array?: ");
 	scanf("%d", &remove);
-	for(i = 0; i < num; i++){
-		if(MyArr[i] == remove){ //now remove, MyArr[i] = MyArr[i+1]
-			temp = i;
-			for(temp; temp < num; temp++){
-				MyArr[temp] = MyArr[temp + 1];				
-			}
-			MyArr[num - 1] = 0;
-			num--;
-			i--;
+	for(i = 0; i < num; i++){ 
+		if(MyArr[i] != remove){ 
+			MyArr[j] = MyArr[i];
+			j++;
 		}
 	}
+	for(i = j; i < num; i++){
+		MyArr[i] = 0;
+	}
+	num = j;
 	printf("Array after removing %d:\n", remove);
 	printf("S.No\tElement\n");
 	for(i = 0; i < num; i++){
